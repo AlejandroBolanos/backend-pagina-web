@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background-color: var(--clr-main-bg);
+  font-family: var(--ff-main);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

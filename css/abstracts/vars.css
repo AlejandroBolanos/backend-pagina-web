@@ -1,0 +1,33 @@
+:root {
+  --ff-main: "Playfair Display", medium, italic;
+  --ff-secondary: "DM Sans";
+  --ff-tertiary: "DM Sans", bold;
+
+  /*font size*/
+
+  --fs-xsm: 1.0625rem; /* (17px) */
+  --fs-sm: 1.4375rem; /* (23px) */
+  --fs-nm: 1.5rem; /* (24px) */
+  --fs-md: 1.8125rem; /* (29px) */
+  --fs-lg: 2rem; /* (32px) */
+  --fs-xlg: 2.25rem; /* (36px) */
+  --fs-bg: 2.75rem; /* (44px) */
+  --fs-xbg: 2.9375rem; /* (47px) */
+  --fs-xxbg: 3.125rem; /* (50px) */
+  --fs-xxxbg: 4.3125rem; /* (69px) */
+
+  /*font weight*/
+
+  --fw-bk: 900;
+  --fw-md: 500;
+  --fw-rg: 400;
+
+  /*colors*/
+  --clr-main-bg: hsl(40, 100%, 94%); /*FFF5E1*/
+  --clr-main: hsl(345, 100%, 25%); /*800020*/
+  --clr-btn: hsla(10, 73%, 62%, 1); /*E2725B*/
+  --clr-white: hsla(0, 0%, 100%, 1);
+  --clr-black: hsla(0, 0%, 0%, 1);
+  --clr-footer-bg: hsla(0, 0%, 20%, 1); /*333333*/
+  --clr-footer: hsla(0, 0%, 100%, 0.5);
+}

@@ -1,0 +1,121 @@
+.dish-submit-btn {
+  font-style: var(--ff-tertiary);
+  font-size: clamp(1rem, 0.5rem, 0.1rem);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background-color: var(--clr-btn);
+  color: var(--clr-white);
+  border: none;
+}
+
+.header-buttons {
+  font-size: var(--fs-lg);
+  background-color: var(--clr-main);
+  border: 0.4rem solid var(--clr-btn);
+  border-radius: 1rem;
+  font-size: clamp(var(--fs-md), var(--fs-nm), var(--fs-sm));
+  font-weight: var(--fw-md);
+  font-style: italic;
+  padding: 0 2rem;
+  background-clip: padding-box;
+  color: var(--clr-white);
+}
+
+.category-btn {
+  background-color: var(--clr-btn);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: var(--fw-rg);
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-md);
+  box-shadow: 1px 0px 20px -6px var(--clr-black);
+  border: none;
+}
+
+.btn-translate {
+  display: flex;
+  position: absolute;
+  margin-left: 6rem;
+  margin-top: 2rem;
+}
+
+.btn-back-arrow {
+  display: flex;
+  position: absolute;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.star-btn {
+  position: absolute;
+  background: hsla(129, 0%, 84%, 0.7);
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 14rem;
+  margin-right: 8.5rem;
+}
+
+.cart-btn {
+  border: 0.5rem solid var(--clr-main);
+  border-radius: 0.5rem;
+  background: var(--clr-main);
+  width: 35%;
+  align-self: center;
+}
+
+.login-container-button {
+  padding: 0.5rem 1.5rem;
+  background: var(--clr-main);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.buttons-payment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 8vw;
+  height: 6ch;
+  padding: 35px 33px;
+  background: var(--clr-main);
+  color: var(--clr-black);
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-xsm);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  font-weight: var(--fw-bk);
+}
+/* Login */
+
+.btn-arrow-login {
+  display: flex;
+  height: 90%;
+  align-self: flex-start;
+  flex: 0;
+  margin: 0.3rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .btn-back-arrow {
+    margin-left: -1rem;
+    margin-top: -1rem;
+    scale: 40%;
+  }
+
+  .btn-arrow-login {
+    scale: 80%;
+  }
+
+  .btn-translate {
+    margin-left: -2rem;
+    margin-top: 0rem;
+    scale: 40%;
+  }
+}
