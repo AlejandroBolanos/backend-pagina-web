@@ -12,10 +12,10 @@
      $item = $database->select("tb_information_dishes","*");
 
     // Reference: https://medoo.in/api/select
-     $item = $database->select("tb_category_dishes","*");
+     $category = $database->select("tb_category_dishes","*");
 
      // Reference: https://medoo.in/api/select
-     $item = $database->select("tb_people_categories","*");
+     $people = $database->select("tb_people_categories","*");
 
      $message = "";
 
@@ -65,9 +65,9 @@
             "dish_name_fr"=>$_POST["dish_name_fr"],
             "dish_description"=>$_POST["dish_description"],
             "dish_description_fr"=>$_POST["dish_description_fr"],
-           // "category_id"=>$_POST["category_id"],
-            //"dish_featured"=>$_POST["dish_featured"],
-            //"people_category_id"=>$_POST["people_category_id"],
+            "category_id"=>$_POST["category_id"],
+            "dish_featured"=>$_POST["dish_featured"],
+            "people_category_id"=>$_POST["people_category_id"],
             "dish_image"=> $img,
             "price"=>$_POST["price"]
         ],[
@@ -109,39 +109,40 @@
                 <label for="dish_description_fr">Description French</label>
                 <textarea id="dish_description_fr" name="dish_description_fr" id="" cols="30" rows="10"><?php echo $item[0]["dish_description_fr"]; ?></textarea>
             </div>
-            <!-- <div class="form-items">
+            <div class="form-items">
                 <label for="category_id">Categories </label>
                 <select name="category_id" id="category_id">
                 <?php 
-                        // foreach($categories as $category){
-                        //     if($item[0]["category_id"] == $state["category_id"]){
-                        //         echo "<option value='".$state["category_id"]."' selected>".$state["category_description"]."</option>";
-                        //     }else{
-                        //         echo "<option value='".$state["category_id"]."'>".$state["category_description"]."</option>";
-                        //     }
-                        // }
+                        foreach($category as $categories){
+                            echo "<option value='".$categories["category_id"]."' selected>".$categories["category_name"]."</option>";
+                            
+                        }
                     ?>
                 </select>
-            </div> -->
-            <!-- <div class="form-items">
+            </div>
+            <div class="form-items">
                 <label for="people_category_id">People Category</label>
                 <select name="people_category_id" id="people_category_id">
                 <?php 
-                        // foreach($peoples as $people){
-                        //     if($item[0]["people_category_id"] == $category["people_category_id"]){
-                        //         echo "<option value='".$category["people_category_id"]."' selected>".$category["people_category_name"]."</option>";
-                        //     }else{
-                        //         echo "<option value='".$category["people_category_id"]."'>".$category["people_category_name"]."</option>";
-                        //     }
-                        // }
+                        foreach($people as $peoples){
+                                echo "<option value='".$peoples["people_category_id"]."' selected>".$peoples["people_category_name"]."</option>";
+                            
+                        }
                     ?>
                 </select>
-            </div> -->
+            </div>
             
             <div class="form-items">
                 <label for="dish_image">Image</label>
                 <img id="preview" src="../imgs/<?php echo $item[0]["dish_image"]; ?>" alt="Preview">
                 <input id="dish_image" type="file" name="dish_image" onchange="readURL(this)">
+            </div>
+            <div class="form-items">
+                <label for="dish_featured">Recomend</label>
+                <select id="dish_featured" class="boxSelect" name="dish_featured">
+                    <option value="1" <?php echo $item[0]["dish_featured"] ? 'selected' : ''; ?>>Yes</option>
+                    <option value="0" <?php echo !$item[0]["dish_featured"] ? 'selected' : ''; ?>>No</option>
+                </select>
             </div>
             <div class="form-items">
                 <label for="price">Price</label>

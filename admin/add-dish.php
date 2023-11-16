@@ -11,6 +11,8 @@
      // Reference: https://medoo.in/api/select
      $category = $database->select("tb_category_dishes","*");
 
+     $item = $database->select("tb_information_dishes","*");
+
      // Reference: https://medoo.in/api/select
      $people = $database->select("tb_people_categories","*");
 
@@ -22,6 +24,7 @@
             "dish_description"=>$_POST["dish_description"],
             "dish_image"=> "destination-placeholder.webp",
             "people_category_id"=>$_POST["people_category_id"],
+            "dish_featured"=>$_POST["dish_featured"],
             "dish_featured"=>$_POST["dish_featured"],
             "price"=>$_POST["price"]
         ]);
@@ -75,8 +78,11 @@
                 </select>
             </div>
             <div class="form-items">
-                <label for="dish_featured">Dish featured</label>
-                <input id="dish_featured" class="textfield" name="dish_featured" type="checkbox">
+                <label for="dish_featured">Recomend</label>
+                <select id="dish_featured" class="boxSelect" name="dish_featured">
+                    <option value="1" <?php echo $item[0]["dish_featured"] ? 'selected' : ''; ?>>Yes</option>
+                    <option value="0" <?php echo !$item[0]["dish_featured"] ? 'selected' : ''; ?>>No</option>
+                </select>
             </div>
             <div class="form-items">
                 <label for="price">Dish Price</label>
