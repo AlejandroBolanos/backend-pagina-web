@@ -60,12 +60,12 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="container-title-login">
-        <a href="home.html" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></a>
+        <a href="home.php" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></a>
 
         <h3>Sign Up</h3>
       </div>
       <div class="container-login">
-        <form class="form-container" action="procesar_login.php" method="POST">
+        <form class="form-container" action="./admin/process_register.php" method="POST">
           <div>
             <label class="form-label" for="username">Full name:</label>
           </div>
@@ -94,6 +94,7 @@
             <input class="form-input" type="password" id="passwordSignUp" name="password" required />
           </div>
           <!--  -->
+          <input type="hidden" name="register" value="1">
           <button class="login-container-button" type="submit">
             <img src="./imgs/sign-up.webp" alt="" />
           </button>
