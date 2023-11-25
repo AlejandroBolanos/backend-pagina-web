@@ -21,7 +21,6 @@
                         // Hash de la contraseña
                         $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]);
 
-                        // Insertar nuevo usuario en la base de datos
                         $database->insert("tb_users", [
                             "fullname" => $_POST["fullname"],
                             "username" => $_POST["username"],

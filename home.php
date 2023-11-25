@@ -28,12 +28,13 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="container-title-login">
-        <a href="home.html" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></a>
+      <span class="btn-arrow-login" onclick="closeModal('loginModal')"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
+
 
         <h3>Login</h3>
       </div>
       <div class="container-login">
-        <form class="form-container" action="procesar_login.php" method="POST">
+        <form class="form-container" action="./admin/process-login.php" method="POST">
           <div>
             <label class="form-label" for="username">Username:</label>
           </div>
@@ -46,10 +47,11 @@
           <div class="container-input">
             <input class="form-input" type="password" id="password" name="password" required />
           </div>
+          <input type="hidden" name="login" value="1">
           <button href="home.html" class="login-container-button" type="submit">
             <img src="./imgs/login.webp" alt="" />
           </button>
-          <a href="home.html">Recover my password</a>
+          <a href="home.php">Recover my password</a>
         </form>
       </div>
     </div>
@@ -60,12 +62,12 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="container-title-login">
-        <a href="home.php" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></a>
+        <span  class="btn-arrow-login"  onclick="closeModal('signUpModal')"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
 
         <h3>Sign Up</h3>
       </div>
       <div class="container-login">
-        <form class="form-container" action="./admin/process_register.php" method="POST">
+        <form class="form-container" action="./admin/process-register.php" method="POST">
           <div>
             <label class="form-label" for="username">Full name:</label>
           </div>
@@ -109,7 +111,7 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <a href="#"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></a>
+          <span onclick="closeModal('appetizerModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -167,7 +169,7 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <a href="#"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></a>
+          <span onclick="closeModal('mainCourseModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -225,7 +227,7 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <a href="#"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></a>
+          <span onclick="closeModal('dessertModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -283,7 +285,7 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <a href="#"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></a>
+          <span onclick="closeModal('beveragesModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -342,7 +344,7 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="container-title-login payment-border">
-        <a href="home.html" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></a>
+        <span onclick="closeModal('payModal')" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
 
         <h3>Payment</h3>
       </div>

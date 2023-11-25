@@ -66,3 +66,14 @@ window.onclick = function (event) {
     modalPay.style.display = "none";
   }
 };
+
+// Función para cerrar un modal por su ID
+function closeModal(modalId) {
+  // Obtén la referencia al modal por su ID
+  var modal = document.getElementById(modalId);
+  
+  // Oculta el modal
+  if (modal) {
+      modal.style.display = 'none';
+  }
+}
