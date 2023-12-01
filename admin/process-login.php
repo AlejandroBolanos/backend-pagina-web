@@ -1,9 +1,9 @@
 <?php
 require_once '../database.php';
+
 $messageLogin = "";
 
-if ($_POST) {
-
+if ($_POST) { 
     if (isset($_POST["login"])) {
         $user = $database->select("tb_users", "*", [
             "username" => $_POST["username"]
@@ -14,14 +14,19 @@ if ($_POST) {
                 session_start();
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["fullname"] = $user[0]["fullname"];
-                header("location: ../home.php?id=" . $_POST["login"]);
+
+                if ($user[0]["type_user"] === 1) {
+                    header("location: ./list-dish.php");
+                } else {
+                    header("location: ../home.php?id=" . $_POST["username"]);
+                }
+                exit(); // Termina el script después de redirigir para evitar ejecución adicional.
             } else {
-                $messageLogin = "wrong username or password";
+                $messageLogin = "Wrong username or password";
             }
         } else {
-            $messageLogin = "wrong username or password";
+            $messageLogin = "Wrong username or password";
         }
-
     }
 }
 ?>

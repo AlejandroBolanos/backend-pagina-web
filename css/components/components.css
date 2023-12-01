@@ -20,6 +20,7 @@
   padding: 0 2rem;
   background-clip: padding-box;
   color: var(--clr-white);
+  cursor: pointer;
 }
 
 .category-btn {
@@ -31,6 +32,7 @@
   font-size: var(--fs-md);
   box-shadow: 1px 0px 20px -6px var(--clr-black);
   border: none;
+  cursor: pointer;
 }
 
 .btn-translate {
@@ -62,6 +64,7 @@
   background: var(--clr-main);
   width: 35%;
   align-self: center;
+  cursor: pointer;
 }
 
 .login-container-button {

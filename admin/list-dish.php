@@ -12,6 +12,7 @@
 </head>
 <body>
     <h2>List Dishes</h2>
+    <button href="../home.php">Back HomePage</button>
     <table>
         <?php
             foreach($items as $item){
