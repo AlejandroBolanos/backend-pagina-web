@@ -1,8 +1,8 @@
 <?php
-    require_once './database.php';
-    // Reference: https://medoo.in/api/select
-    $items = $database->select("tb_information_dishes","*");
-    
+require_once './database.php';
+// Reference: https://medoo.in/api/select
+$items = $database->select("tb_information_dishes", "*");
+
 ?>
 
 
@@ -16,94 +16,36 @@
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+    rel="stylesheet" />
   <!-- google fonts -->
   <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-  <!---Modal de Login -->
-  <div id="loginModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="container-title-login">
-      <span class="btn-arrow-login" onclick="closeModal('loginModal')"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
+
+  <?php
+  require_once './login.php';
+  ?>
+
+  <?php
+  require_once './singup.php'; 
+  ?>
+
+<?php
+  require_once './login.php';
+  ?>
+
+  <?php
+  require_once './singup.php'; 
+  ?>
+
+<?php
+  require_once './pay.php'; 
+  ?>
 
 
-        <h3>Login</h3>
-      </div>
-      <div class="container-login">
-        <form class="form-container" action="./admin/process-login.php" method="POST">
-          <div>
-            <label class="form-label" for="username">Username:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="username" name="username" required />
-          </div>
-          <div>
-            <label class="form-label" for="password">Password:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="password" id="password" name="password" required />
-          </div>
-          <input type="hidden" name="login" value="1">
-          <button href="home.html" class="login-container-button" type="submit">
-            <img src="./imgs/login.webp" alt="" />
-          </button>
-          <a href="home.php">Recover my password</a>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div id="signUpModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="container-title-login">
-        <span  class="btn-arrow-login"  onclick="closeModal('signUpModal')"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
-
-        <h3>Sign Up</h3>
-      </div>
-      <div class="container-login">
-        <form class="form-container" action="./admin/process-register.php" method="POST">
-          <div>
-            <label class="form-label" for="username">Full name:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="fullname" name="fullname" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="email">Email:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="email" name="email" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="usernameSignUp">Username:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="usernameSignUp" name="username" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="passwordSignUp">Password:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="password" id="passwordSignUp" name="password" required />
-          </div>
-          <!--  -->
-          <input type="hidden" name="register" value="1">
-          <button class="login-container-button" type="submit">
-            <img src="./imgs/sign-up.webp" alt="" />
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <div id="appetizerModal" class="modal">
     <span class="close">&times;</span>
@@ -111,7 +53,8 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <span onclick="closeModal('appetizerModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
+          <span onclick="closeModal('appetizerModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
+              alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -121,42 +64,42 @@
       </div>
 
       <div class="container-menu">
-        
-          <?php
-          foreach($items as $item ){
-            if ($item["category_id"]==2) {
-              # code...
-              echo "<div class='card menu-items top-border'>";
-              echo "<div class='half'>";
-              echo "  <div class='content-img'>";
-              echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-              echo "    <button class='star-btn'>";
-              echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-              echo "    </button>";
-                // <!-- Contenido para la mitad izquierda -->
+
+        <?php
+        foreach ($items as $item) {
+          if ($item["category_id"] == 2) {
+            # code...
+            echo "<div class='card menu-items top-border'>";
+            echo "<div class='half'>";
+            echo "  <div class='content-img'>";
+            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
+            echo "    <button class='star-btn'>";
+            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
+            echo "    </button>";
+            // <!-- Contenido para la mitad izquierda -->
             echo "  </div>";
             echo "</div>";
-            
+
             echo "<div class='half'>";
             echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> ". $item["dish_name"] ."</h5>";
+            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
             echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-          echo "    <p>-Couples ou famille.</p>";
-          echo "    <div class='down-content'>";
-          echo "      <p>$" . $item["price"] . "</p>";
-          echo "      <button class='cart-btn'>";
-          echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-          echo "      </button>";
-          echo "    </div>";
+            echo "    <p>-Couples ou famille.</p>";
+            echo "    <div class='down-content'>";
+            echo "      <p>$" . $item["price"] . "</p>";
+            echo "      <button class='cart-btn'>";
+            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
+            echo "      </button>";
+            echo "    </div>";
             // <!-- Contenido para la mitad derecha -->
-          echo "  </div>";
-          echo "</div>";
-          echo "</div>";
+            echo "  </div>";
+            echo "</div>";
+            echo "</div>";
+          }
         }
-      }
-          ?>
+        ?>
 
-        
+
       </div>
 
     </div>
@@ -169,7 +112,8 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <span onclick="closeModal('mainCourseModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
+          <span onclick="closeModal('mainCourseModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
+              alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -179,42 +123,42 @@
       </div>
 
       <div class="container-menu">
-        
-          <?php
-          foreach($items as $item ){
-            if ($item["category_id"]==1) {
-              # code...
-              echo "<div class='card menu-items top-border'>";
-              echo "<div class='half'>";
-              echo "  <div class='content-img'>";
-              echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-              echo "    <button class='star-btn'>";
-              echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-              echo "    </button>";
-                // <!-- Contenido para la mitad izquierda -->
+
+        <?php
+        foreach ($items as $item) {
+          if ($item["category_id"] == 1) {
+            # code...
+            echo "<div class='card menu-items top-border'>";
+            echo "<div class='half'>";
+            echo "  <div class='content-img'>";
+            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
+            echo "    <button class='star-btn'>";
+            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
+            echo "    </button>";
+            // <!-- Contenido para la mitad izquierda -->
             echo "  </div>";
             echo "</div>";
-            
+
             echo "<div class='half'>";
             echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> ". $item["dish_name"] ."</h5>";
+            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
             echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-          echo "    <p>-Couples ou famille.</p>";
-          echo "    <div class='down-content'>";
-          echo "      <p>$" . $item["price"] . "</p>";
-          echo "      <button class='cart-btn'>";
-          echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-          echo "      </button>";
-          echo "    </div>";
+            echo "    <p>-Couples ou famille.</p>";
+            echo "    <div class='down-content'>";
+            echo "      <p>$" . $item["price"] . "</p>";
+            echo "      <button class='cart-btn'>";
+            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
+            echo "      </button>";
+            echo "    </div>";
             // <!-- Contenido para la mitad derecha -->
-          echo "  </div>";
-          echo "</div>";
-          echo "</div>";
+            echo "  </div>";
+            echo "</div>";
+            echo "</div>";
+          }
         }
-      }
-          ?>
+        ?>
 
-        
+
       </div>
 
     </div>
@@ -227,7 +171,8 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <span onclick="closeModal('dessertModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
+          <span onclick="closeModal('dessertModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
+              alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -237,42 +182,42 @@
       </div>
 
       <div class="container-menu">
-        
-          <?php
-          foreach($items as $item ){
-            if ($item["category_id"]==3) {
-              # code...
-              echo "<div class='card menu-items top-border'>";
-              echo "<div class='half'>";
-              echo "  <div class='content-img'>";
-              echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-              echo "    <button class='star-btn'>";
-              echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-              echo "    </button>";
-                // <!-- Contenido para la mitad izquierda -->
+
+        <?php
+        foreach ($items as $item) {
+          if ($item["category_id"] == 3) {
+            # code...
+            echo "<div class='card menu-items top-border'>";
+            echo "<div class='half'>";
+            echo "  <div class='content-img'>";
+            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
+            echo "    <button class='star-btn'>";
+            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
+            echo "    </button>";
+            // <!-- Contenido para la mitad izquierda -->
             echo "  </div>";
             echo "</div>";
-            
+
             echo "<div class='half'>";
             echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> ". $item["dish_name"] ."</h5>";
+            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
             echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-          echo "    <p>-Couples ou famille.</p>";
-          echo "    <div class='down-content'>";
-          echo "      <p>$" . $item["price"] . "</p>";
-          echo "      <button class='cart-btn'>";
-          echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-          echo "      </button>";
-          echo "    </div>";
+            echo "    <p>-Couples ou famille.</p>";
+            echo "    <div class='down-content'>";
+            echo "      <p>$" . $item["price"] . "</p>";
+            echo "      <button class='cart-btn'>";
+            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
+            echo "      </button>";
+            echo "    </div>";
             // <!-- Contenido para la mitad derecha -->
-          echo "  </div>";
-          echo "</div>";
-          echo "</div>";
+            echo "  </div>";
+            echo "</div>";
+            echo "</div>";
+          }
         }
-      }
-          ?>
+        ?>
 
-        
+
       </div>
 
     </div>
@@ -285,7 +230,8 @@
     <div class="modal-content">
       <div class="header-menu">
         <div class="container-btns-title">
-          <span onclick="closeModal('beveragesModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp" alt="Btn Back Arrow" /></span>
+          <span onclick="closeModal('beveragesModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
+              alt="Btn Back Arrow" /></span>
 
           <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
         </div>
@@ -295,41 +241,41 @@
       </div>
 
       <div class="container-menu">
-        
-          <?php
-          foreach($items as $item ){
-            if ($item["category_id"]==4) {
-              # code...
-              echo "<div class='card menu-items top-border'>";
-              echo "<div class='half'>";
-              echo "  <div class='content-img'>";
-              echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-              echo "    <button class='star-btn'>";
-              //echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-              echo "    </button>";
-                // <!-- Contenido para la mitad izquierda -->
+
+        <?php
+        foreach ($items as $item) {
+          if ($item["category_id"] == 4) {
+            # code...
+            echo "<div class='card menu-items top-border'>";
+            echo "<div class='half'>";
+            echo "  <div class='content-img'>";
+            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
+            echo "    <button class='star-btn'>";
+            //echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
+            echo "    </button>";
+            // <!-- Contenido para la mitad izquierda -->
             echo "  </div>";
             echo "</div>";
-            
+
             echo "<div class='half'>";
             echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> ". $item["dish_name"] ."</h5>";
+            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
             echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-          echo "    <p>-Couples ou famille.</p>";
-          echo "    <div class='down-content'>";
-          echo "      <p>$" . $item["price"] . "</p>";
-          echo "      <button class='cart-btn'><img src='./imgs/cart.webp' alt='Btn-Cart' />";
-          echo "      </button>";
-          echo "    </div>";
+            echo "    <p>-Couples ou famille.</p>";
+            echo "    <div class='down-content'>";
+            echo "      <p>$" . $item["price"] . "</p>";
+            echo "      <button class='cart-btn'><img src='./imgs/cart.webp' alt='Btn-Cart' />";
+            echo "      </button>";
+            echo "    </div>";
             // <!-- Contenido para la mitad derecha -->
-          echo "  </div>";
-          echo "</div>";
-          echo "</div>";
+            echo "  </div>";
+            echo "</div>";
+            echo "</div>";
+          }
         }
-      }
-          ?>
+        ?>
 
-        
+
       </div>
 
     </div>
@@ -339,57 +285,7 @@
   </div>
   </div>
 
-  <div id="payModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="container-title-login payment-border">
-        <span onclick="closeModal('payModal')" class="btn-arrow-login"><img src="./imgs/back-arrow.webp" alt="Btn.back-arrow" /></span>
-
-        <h3>Payment</h3>
-      </div>
-      <div class="container-login payment-border">
-        <form class="form-container" action="procesar_login.php" method="POST">
-          <div>
-            <label class="form-label" for="card-number">Card Number:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="card-number" name="card-number" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="expiry">Expiry:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="expiry" name="expiry" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="cvc">CVC:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="cvc" name="cvc" required />
-          </div>
-          <!--  -->
-          <div>
-            <label class="form-label" for="owners-name">Owner's name:</label>
-          </div>
-          <div class="container-input">
-            <input class="form-input" type="text" id="owners-name" name="owners-name" required />
-          </div>
-          <!--  -->
-          <div class="buttons-payment-container">
-            <button class="buttons-payment">Go to carry</button>
-            <button class="buttons-payment">Delivery</button>
-            <button class="buttons-payment">Eat here</button>
-          </div>
-          <button class="login-container-button" type="submit">
-            <img src="./imgs/credit-card.webp" alt="" />
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
+  
 
   <header>
     <div id="header-container">
@@ -458,25 +354,25 @@
     <h2 class="secondary-title">Recommended</h2>
 
     <section class="recommended-container menu-items">
-    <?php
-          foreach($items as $item ){
-            if ($item["dish_featured"]==1) {
-              # code...
-              echo "<div class='card menu-items top-border'>";
-              echo "<div class='half'>";
-              echo "  <div class='content-img'>";
-              echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-              echo "    <button class='star-btn'>";
-              echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-              echo "    </button>";
-                // <!-- Contenido para la mitad izquierda -->
-            echo "  </div>";
-            echo "</div>";
-            
-            echo "<div class='half'>";
-            echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> ". $item["dish_name"] ."</h5>";
-            echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
+      <?php
+      foreach ($items as $item) {
+        if ($item["dish_featured"] == 1) {
+          # code...
+          echo "<div class='card menu-items top-border'>";
+          echo "<div class='half'>";
+          echo "  <div class='content-img'>";
+          echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
+          echo "    <button class='star-btn'>";
+          echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
+          echo "    </button>";
+          // <!-- Contenido para la mitad izquierda -->
+          echo "  </div>";
+          echo "</div>";
+
+          echo "<div class='half'>";
+          echo "  <div class='content-text'>";
+          echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
+          echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
           echo "    <p>-Couples ou famille.</p>";
           echo "    <div class='down-content'>";
           echo "      <p>$" . $item["price"] . "</p>";
@@ -484,15 +380,15 @@
           echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
           echo "      </button>";
           echo "    </div>";
-            // <!-- Contenido para la mitad derecha -->
+          // <!-- Contenido para la mitad derecha -->
           echo "  </div>";
           echo "</div>";
           echo "</div>";
         }
       }
-          ?>
+      ?>
       <!--  -->
-      
+
       <!--  -->
     </section>
 
