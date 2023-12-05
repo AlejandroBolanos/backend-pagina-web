@@ -21,6 +21,8 @@ $items = $database->select("tb_information_dishes", "*");
     rel="stylesheet" />
   <!-- google fonts -->
   <link rel="stylesheet" href="css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -30,262 +32,15 @@ $items = $database->select("tb_information_dishes", "*");
   ?>
 
   <?php
-  require_once './singup.php'; 
-  ?>
-
-<?php
-  require_once './login.php';
+  require_once './singup.php';
   ?>
 
   <?php
-  require_once './singup.php'; 
-  ?>
-
-<?php
-  require_once './pay.php'; 
+  require_once './pay.php';
   ?>
 
 
-
-  <div id="appetizerModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="header-menu">
-        <div class="container-btns-title">
-          <span onclick="closeModal('appetizerModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
-              alt="Btn Back Arrow" /></span>
-
-          <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
-        </div>
-        <div class="title-menu">
-          <h4>Appetizers/ Salads</h4>
-        </div>
-      </div>
-
-      <div class="container-menu">
-
-        <?php
-        foreach ($items as $item) {
-          if ($item["category_id"] == 2) {
-            # code...
-            echo "<div class='card menu-items top-border'>";
-            echo "<div class='half'>";
-            echo "  <div class='content-img'>";
-            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-            echo "    <button class='star-btn'>";
-            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-            echo "    </button>";
-            // <!-- Contenido para la mitad izquierda -->
-            echo "  </div>";
-            echo "</div>";
-
-            echo "<div class='half'>";
-            echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
-            echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-            echo "    <p>-Couples ou famille.</p>";
-            echo "    <div class='down-content'>";
-            echo "      <p>$" . $item["price"] . "</p>";
-            echo "      <button class='cart-btn'>";
-            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-            echo "      </button>";
-            echo "    </div>";
-            // <!-- Contenido para la mitad derecha -->
-            echo "  </div>";
-            echo "</div>";
-            echo "</div>";
-          }
-        }
-        ?>
-
-
-      </div>
-
-    </div>
-  </div>
-  <!--  -->
-
-  <div id="mainCourseModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="header-menu">
-        <div class="container-btns-title">
-          <span onclick="closeModal('mainCourseModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
-              alt="Btn Back Arrow" /></span>
-
-          <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
-        </div>
-        <div class="title-menu">
-          <h4>Main Course</h4>
-        </div>
-      </div>
-
-      <div class="container-menu">
-
-        <?php
-        foreach ($items as $item) {
-          if ($item["category_id"] == 1) {
-            # code...
-            echo "<div class='card menu-items top-border'>";
-            echo "<div class='half'>";
-            echo "  <div class='content-img'>";
-            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-            echo "    <button class='star-btn'>";
-            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-            echo "    </button>";
-            // <!-- Contenido para la mitad izquierda -->
-            echo "  </div>";
-            echo "</div>";
-
-            echo "<div class='half'>";
-            echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
-            echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-            echo "    <p>-Couples ou famille.</p>";
-            echo "    <div class='down-content'>";
-            echo "      <p>$" . $item["price"] . "</p>";
-            echo "      <button class='cart-btn'>";
-            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-            echo "      </button>";
-            echo "    </div>";
-            // <!-- Contenido para la mitad derecha -->
-            echo "  </div>";
-            echo "</div>";
-            echo "</div>";
-          }
-        }
-        ?>
-
-
-      </div>
-
-    </div>
-  </div>
-  <!--  -->
-
-  <div id="dessertModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="header-menu">
-        <div class="container-btns-title">
-          <span onclick="closeModal('dessertModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
-              alt="Btn Back Arrow" /></span>
-
-          <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
-        </div>
-        <div class="title-menu">
-          <h4>Dessert</h4>
-        </div>
-      </div>
-
-      <div class="container-menu">
-
-        <?php
-        foreach ($items as $item) {
-          if ($item["category_id"] == 3) {
-            # code...
-            echo "<div class='card menu-items top-border'>";
-            echo "<div class='half'>";
-            echo "  <div class='content-img'>";
-            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-            echo "    <button class='star-btn'>";
-            echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-            echo "    </button>";
-            // <!-- Contenido para la mitad izquierda -->
-            echo "  </div>";
-            echo "</div>";
-
-            echo "<div class='half'>";
-            echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
-            echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-            echo "    <p>-Couples ou famille.</p>";
-            echo "    <div class='down-content'>";
-            echo "      <p>$" . $item["price"] . "</p>";
-            echo "      <button class='cart-btn'>";
-            echo "        <img src='./imgs/cart.webp' alt='Btn-Cart' />";
-            echo "      </button>";
-            echo "    </div>";
-            // <!-- Contenido para la mitad derecha -->
-            echo "  </div>";
-            echo "</div>";
-            echo "</div>";
-          }
-        }
-        ?>
-
-
-      </div>
-
-    </div>
-  </div>
-  <!--  -->
-
-  <div id="beveragesModal" class="modal">
-    <span class="close">&times;</span>
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="header-menu">
-        <div class="container-btns-title">
-          <span onclick="closeModal('beveragesModal')"><img class="btn-back-arrow" src="./imgs/back-arrow.webp"
-              alt="Btn Back Arrow" /></span>
-
-          <a href="#"><img class="btn-translate" src="./imgs/translate.webp" alt="Btn-Translate" /></a>
-        </div>
-        <div class="title-menu">
-          <h4>Beverages</h4>
-        </div>
-      </div>
-
-      <div class="container-menu">
-
-        <?php
-        foreach ($items as $item) {
-          if ($item["category_id"] == 4) {
-            # code...
-            echo "<div class='card menu-items top-border'>";
-            echo "<div class='half'>";
-            echo "  <div class='content-img'>";
-            echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-            echo "    <button class='star-btn'>";
-            //echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-            echo "    </button>";
-            // <!-- Contenido para la mitad izquierda -->
-            echo "  </div>";
-            echo "</div>";
-
-            echo "<div class='half'>";
-            echo "  <div class='content-text'>";
-            echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
-            echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
-            echo "    <p>-Couples ou famille.</p>";
-            echo "    <div class='down-content'>";
-            echo "      <p>$" . $item["price"] . "</p>";
-            echo "      <button class='cart-btn'><img src='./imgs/cart.webp' alt='Btn-Cart' />";
-            echo "      </button>";
-            echo "    </div>";
-            // <!-- Contenido para la mitad derecha -->
-            echo "  </div>";
-            echo "</div>";
-            echo "</div>";
-          }
-        }
-        ?>
-
-
-      </div>
-
-    </div>
-  </div>
-  <!--  -->
-  </div>
-  </div>
-  </div>
-
-  
+  <div id="modalContainer" ></div>
 
   <header>
     <div id="header-container">
@@ -332,14 +87,14 @@ $items = $database->select("tb_information_dishes", "*");
           <img class="category-img" src="./imgs/Restaurant.webp" alt="Salad" />
         </div>
         <h1 class="category-title">Main Course</h1>
-        <button id="mainCourseBtn" class="category-btn">View More</button>
+        <button id="mainCourseBtn" class="category-btn" value="1">View More</button>
       </div>
       <div class="category">
         <div>
           <img class="category-img" src="./imgs/Dessert.webp" alt="Salad" />
         </div>
         <h1 class="category-title">Dessert</h1>
-        <button id="dessertBtn" class="category-btn">View More</button>
+        <button id="dessertBtn" class="category-btn" value="3">View More</button>
       </div>
       <div class="category">
         <div>
@@ -347,7 +102,7 @@ $items = $database->select("tb_information_dishes", "*");
         </div>
 
         <h1 class="category-title">Beverages</h1>
-        <button id="beveragesBtn" class="category-btn">View More</button>
+        <button id="beveragesBtn" class="category-btn" value="4">View More</button>
       </div>
     </section>
 
