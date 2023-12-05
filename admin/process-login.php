@@ -14,6 +14,9 @@ if ($_POST) {
                 session_start();
                 $_SESSION["isLoggedIn"] = true;
                 $_SESSION["fullname"] = $user[0]["fullname"];
+                $_SESSION["id_user"] = $user[0]["id_user"];
+                
+
 
                 if ($user[0]["type_user"] === 1) {
                     header("location: ./list-dish.php");

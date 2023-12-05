@@ -1,6 +1,5 @@
 <?php
             require_once '../database.php';
-            $message = "";
 
             if ($_POST) {
                 if (isset($_POST["register"])) {
@@ -10,8 +9,6 @@
                     ]);
 
                     if (count($validateUsername) > 0) {
-                        //  header("location: home.php?id=" . $_POST["register"]);
-                         $message = "This username is already registered";
                         echo "<script>
                         document.addEventListener('DOMContentLoaded', function() {
                             modalSignUp();

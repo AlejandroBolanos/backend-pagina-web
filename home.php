@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once './database.php';
 // Reference: https://medoo.in/api/select
 $items = $database->select("tb_information_dishes", "*");
@@ -40,7 +43,7 @@ $items = $database->select("tb_information_dishes", "*");
   ?>
 
 
-  <div id="modalContainer" ></div>
+  <div id="modalContainer"></div>
 
   <header>
     <div id="header-container">
@@ -58,10 +61,24 @@ $items = $database->select("tb_information_dishes", "*");
       </div>
       <div class="header-right">
         <div class="header-right-upper">
-          <div class="header-buttons-container">
-            <button id="signup-btn" class="header-buttons">Sign Up</button>
-            <button id="login-btn" class="header-buttons">Login</button>
-          </div>
+
+          <?php
+
+          if (isset($_SESSION["isLoggedIn"])) {
+            echo "<div class='header-buttons-container'>";
+            echo " <a href='profile.php?id=".$_SESSION["id_user"]."'> <button class='header-buttons'> " . $_SESSION["fullname"] . "</button></a>";
+            echo " <a href='logout.php'><button class='header-buttons' >Log Out</button><a/>";
+            echo "</div>";
+          } else {
+            echo "<div class='header-buttons-container'>";
+            echo " <button id='signup-btn' class='header-buttons'>Sign Up</button>";
+            echo " <button id='login-btn' class='header-buttons'>Login</button>";
+            echo "</div>";
+
+          }
+
+          ?>
+
           <img src="imgs/logo.webp" alt="Logo" />
         </div>
         <div class="header-image-container">
