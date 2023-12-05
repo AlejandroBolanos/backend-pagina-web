@@ -24,7 +24,6 @@ if (isset($_SESSION['cart'][$dish])) {
 echo "<script> 
 
 window.alert('Product added to the cart'); 
-window.alert('". json_encode($_SESSION['cart'])."');     
 window.location.href = './home.php';
 </script>";
 

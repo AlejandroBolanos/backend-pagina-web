@@ -8,23 +8,24 @@
 <body>
 
 <?php
+
+session_start();
+
+
 // Datos del usuario
-$nombreUsuario = "John Doe";
-$correoUsuario = "john.doe@example.com";
+$user = $database->get('tb_users', ["id" => $_SESSION["id_user"]]);
+
+$nombreUsuario = $user[0]["fullname"];
+$correoUsuario = $user[0]["email"];
 
 // Lista de órdenes del usuario (simulación de datos)
-$ordenes = array(
-    array("ID" => 1, "Producto" => "Producto A", "Cantidad" => 2, "Total" => 30.00),
-    array("ID" => 2, "Producto" => "Producto B", "Cantidad" => 1, "Total" => 15.00),
-    array("ID" => 3, "Producto" => "Producto C", "Cantidad" => 3, "Total" => 45.00)
-);
+
 
 // Mostrar datos del usuario
 echo "<h1>Perfil de $nombreUsuario</h1>";
 echo "<p>Correo Electrónico: $correoUsuario</p>";
 
 
-session_start();
 
 // Verificar si el carrito está vacío
 if (empty($_SESSION['cart'])) {
