@@ -55,8 +55,7 @@ window.onclick = function (event) {
   }
   if (event.target == modalSignUp) {
     modalSignUp.style.display = "none";
-  }
-  
+  } 
 
   if (event.target == modalPay) {
     modalPay.style.display = "none";
