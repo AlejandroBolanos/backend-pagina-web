@@ -21,7 +21,7 @@ if ($_POST) {
                 if ($user[0]["type_user"] === 1) {
                     header("location: ./list-dish.php");
                 } else {
-                    header("location: ../home.php?id=" . $_POST["username"]);
+                    header("location: ../home.php");
                 }
                 exit(); // Termina el script después de redirigir para evitar ejecución adicional.
             } else {

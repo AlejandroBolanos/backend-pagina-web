@@ -57,7 +57,15 @@
   margin-bottom: 14rem;
   margin-right: 8.5rem;
 }
+.cart-label{
+position: absolute;
+background: url('/imgs/cart.webp') left/25px 25px no-repeat; /* Ajusta la ruta y el tamaño de la imagen */
 
+}
+
+.cart-qty{
+  width: 30%;
+}
 .cart-btn {
   border: 0.5rem solid var(--clr-main);
   border-radius: 0.5rem;

@@ -23,27 +23,28 @@ $ordenes = array(
 echo "<h1>Perfil de $nombreUsuario</h1>";
 echo "<p>Correo Electrónico: $correoUsuario</p>";
 
-// Mostrar tabla de órdenes
-echo "<h2>Órdenes del Usuario</h2>";
-echo "<table border='1'>
-        <tr>
-            <th>ID</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Total</th>
-        </tr>";
 
-// Llenar la tabla con órdenes del usuario
-foreach ($ordenes as $orden) {
-    echo "<tr>
-            <td>{$orden['ID']}</td>
-            <td>{$orden['Producto']}</td>
-            <td>{$orden['Cantidad']}</td>
-            <td>{$orden['Total']}</td>
-          </tr>";
+session_start();
+
+// Verificar si el carrito está vacío
+if (empty($_SESSION['cart'])) {
+    echo "El carrito está vacío.";
+} else {
+    echo "<table border='1'>";
+    echo "<tr><th>Producto</th><th>Cantidad</th></tr>";
+
+    // Iterar sobre el carrito
+    foreach ($_SESSION['cart'] as $dish => $qty) {
+        echo "<tr>";
+        echo "<td>$dish</td>";
+        echo "<td>$qty</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
 }
 
-echo "</table>";
+// Puedes agregar estilos adicionales a la tabla según tus preferencias
 ?>
 
 </body>

@@ -68,6 +68,8 @@ $items = $database->select("tb_information_dishes", "*");
             echo "<div class='header-buttons-container'>";
             echo " <a href='profile.php?id=".$_SESSION["id_user"]."'> <button class='header-buttons'> " . $_SESSION["fullname"] . "</button></a>";
             echo " <a href='logout.php'><button class='header-buttons' >Log Out</button><a/>";
+            echo " <button id='signup-btn' style='display:none'>Sign Up</button>";
+            echo " <button id='login-btn' style='display:none'>Login</button>";
             echo "</div>";
           } else {
             echo "<div class='header-buttons-container'>";
@@ -164,46 +166,9 @@ $items = $database->select("tb_information_dishes", "*");
       <!--  -->
     </section>
 
-    <table class="order-table">
-      <tbody>
-        <h2 class="secondary-title table-title">Order</h2>
-        <tr>
-          <td class="first-td">Onion Soup au gratin</td>
-          <td>Price $8</td>
-          <td class="third-td">
-            <img src="./imgs/remove-icon.webp" alt="remove" />
-          </td>
-        </tr>
-        <tr>
-          <td class="first-td">Onion Soup au gratin</td>
-          <td>Price $8</td>
-          <td class="third-td">
-            <img src="./imgs/remove-icon.webp" alt="remove" />
-          </td>
-        </tr>
-        <tr>
-          <td class="first-td">Onion Soup au gratin</td>
-          <td>Price $8</td>
-          <td class="third-td">
-            <img src="./imgs/remove-icon.webp" alt="remove" />
-          </td>
-        </tr>
-        <tr>
-          <td class="first-td">Onion Soup au gratin</td>
-          <td>Price $8</td>
-          <td class="third-td">
-            <img src="./imgs/remove-icon.webp" alt="remove" />
-          </td>
-        </tr>
-        <tr>
-          <td class="first-td">Onion Soup au gratin</td>
-          <td>Price $8</td>
-          <td class="third-td">
-            <img src="./imgs/remove-icon.webp" alt="remove" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <?php 
+  require_once "cart.php";
+  ?>
 
     <button id="payBtn" class="secondary-title">Pay Order</button>
   </main>

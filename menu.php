@@ -37,9 +37,9 @@ if ($_POST) {
                 <a href="#"><img class="btn-translate" src="imgs/translate.webp" alt="Btn-Translate" /></a>
             </div>
             <div class="title-menu">
-                
-                    <?php echo "<h4>".$category[0]["category_name"]."</h4>" ?>
-                
+
+                <?php echo "<h4>" . $category[0]["category_name"] . "</h4>" ?>
+
             </div>
         </div>
 
@@ -64,11 +64,13 @@ if ($_POST) {
                 echo "    <h5 class='name-dish'> " . $item["dish_name"] . "</h5>";
                 echo "    <p>" . substr($item["dish_description"], 0, 70) . "...</p>";
                 echo "    <p>-Couples ou famille.</p>";
-                echo "    <div class='down-content'>";
                 echo "      <p>$" . $item["price"] . "</p>";
-                echo "      <button class='cart-btn'><img src='./imgs/cart.webp' alt='Btn-Cart' />";
-                echo "      </button>";
-                echo "    </div>";
+                echo "    <form method='post' action='add-to-cart.php''>";
+                echo "        <input type='hidden' name='dish_id' value='".$item["dish_id"]."' />";
+                echo "        <input type='number' class='cart-qty' name='qty' value='1' />";
+                echo "        <label class='cart-label' for='submit'></label>";
+                echo "        <input type='submit'class='cart-btn' id='submit'>";
+                echo "    </form>";
                 // <!-- Contenido para la mitad derecha -->
                 echo "  </div>";
                 echo "</div>";
