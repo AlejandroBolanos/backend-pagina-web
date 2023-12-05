@@ -51,10 +51,8 @@ if ($_POST) {
                 echo "<div class='card menu-items top-border'>";
                 echo "<div class='half'>";
                 echo "  <div class='content-img'>";
-                echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . " />";
-                echo "    <button class='star-btn'>";
-                //echo "      <img src='./imgs/like.webp' alt='Btn-Star' />";
-                echo "    </button>";
+                echo "    <img class='img-menu' src='imgs/" . $item["dish_image"] . "' alt='" . $item["dish_name"] . "' />";
+                echo "    <button class='star-btn'><img src='./imgs/like.webp' alt='Btn-Star' /></button>";
                 // <!-- Contenido para la mitad izquierda -->
                 echo "  </div>";
                 echo "</div>";
