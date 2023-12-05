@@ -1,3 +1,8 @@
+.title-admin {
+  text-align: center;
+  color: var(--clr-black);
+}
+
 .header-title {
   font-size: clamp(var(--fs-xxxbg), var(--fs-xbg), var(--fs-xlg));
   font-weight: var(--fw-md);
