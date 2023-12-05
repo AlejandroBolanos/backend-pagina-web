@@ -3,7 +3,7 @@ require_once '../database.php';
 
 $messageLogin = "";
 
-if ($_POST) { 
+if ($_POST) {
     if (isset($_POST["login"])) {
         $user = $database->select("tb_users", "*", [
             "username" => $_POST["username"]
@@ -23,9 +23,20 @@ if ($_POST) {
                 exit(); // Termina el script después de redirigir para evitar ejecución adicional.
             } else {
                 $messageLogin = "Wrong username or password";
+                echo "<script> 
+            window.alert('" . $messageLogin . "');     
+            window.location.href = '../home.php';
+
+            </script>";
+
             }
         } else {
             $messageLogin = "Wrong username or password";
+            echo "<script> 
+            window.alert('" . $messageLogin . "');  
+            window.location.href = '../home.php';
+
+            </script>";
         }
     }
 }
