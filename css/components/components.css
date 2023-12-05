@@ -1,3 +1,12 @@
+.btn-admin {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 .dish-submit-btn {
   font-style: var(--ff-tertiary);
   font-size: clamp(1rem, 0.5rem, 0.1rem);

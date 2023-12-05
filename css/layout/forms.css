@@ -1,3 +1,82 @@
+/* Estilos para la clase form-items */
+.form-items {
+  margin-bottom: 20px;
+}
+
+.form-items label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-items input,
+.form-items textarea,
+.form-items select {
+  width: 30%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.form-items select {
+  width: calc(30% - 22px); /* Ajuste para tener en cuenta el ancho de la flecha del select */
+}
+
+.form-items img {
+  max-width: 60%;
+  height: auto;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.form-items .submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Puedes ajustar estos estilos según tus preferencias de diseño */
+
+
+.table-admin {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-admin, .th-admin, .td-admin {
+  border: 1px solid #ddd;
+}
+
+.th-admin, .td-admin {
+  padding: 10px;
+  text-align: left;
+}
+
+.th-admin {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.a-admin {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.a-admin:hover {
+  text-decoration: underline;
+  color: #21618C;
+}
+
 .dish {
   font-style: var(--ff-secondary);
   font-size: var(--fs-nm);

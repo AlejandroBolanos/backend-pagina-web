@@ -1,3 +1,14 @@
+
+.cont-edit{
+  max-width: 800px;
+  margin: 0 0 0 4rem ;
+}
+
+.container-admin {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
 .categories-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
